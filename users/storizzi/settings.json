@@ -1,0 +1,16 @@
+{
+    "user" : {
+      "username" : "storizzi",
+      "firstname": "Storizzi",
+      "surname": "Simon",
+      "pseudonym": true,
+      "email": "examples@storizzi.com",
+      "repositoryList" : ["examples"],
+      "repositories" : {
+        "examples" : {
+          "name" : "Examples of how storizzi can be used"
+        }
+      }
+    }
+  }
+  

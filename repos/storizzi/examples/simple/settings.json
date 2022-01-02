@@ -1,0 +1,50 @@
+{
+  "shortTitle": "wizard-of-oz",
+  "releaseDOM": "17",
+  "releaseMonth": "May",
+  "releaseYear": "1900",
+  "frontCover": "cover.jpg",
+
+  "outputDocuments": {
+    "eBookDoc": {
+      "generationEnabled": true,
+      "generationTemplates": [
+        "simple",
+        "eBook",
+        "mdSource"
+      ]
+    },
+    "wordDoc": {
+      "generationEnabled": true,
+      "generationTemplates": [
+        "simple",
+        "doc",
+        "mdSource"
+      ]
+    },
+    "portableDoc": {
+      "generationEnabled": true,
+      "generationTemplates": [
+        "simple",
+        "pdf",
+        "mdSource"
+      ]
+    },
+    "kindleMobi": {
+      "generationEnabled": true,
+      "generationTemplates": [
+        "simple",
+        "mobi",
+        "mdSource"
+      ]
+    }
+  },
+
+  "debug": {
+    "allowDebugging": false,
+    "showCalibreSettings": true,
+    "showSpecificMethodBoundaries": [
+      "generateBookWithCalibre"
+    ]
+  }
+}

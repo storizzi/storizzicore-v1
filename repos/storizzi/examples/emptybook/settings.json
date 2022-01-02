@@ -1,0 +1,52 @@
+{
+  "shortTitle": "mybook",
+
+  "title": "My Book",
+  "releaseDOM": "02",
+  "releaseMonth": "Jan",
+  "releaseYear": "2022",
+  "frontCover": "cover.jpg",
+
+  "outputDocuments": {
+    "eBookDoc": {
+      "generationEnabled": true,
+      "generationTemplates": [
+        "simple",
+        "eBook",
+        "mdSource"
+      ]
+    },
+    "wordDoc": {
+      "generationEnabled": true,
+      "generationTemplates": [
+        "simple",
+        "doc",
+        "mdSource"
+      ]
+    },
+    "portableDoc": {
+      "generationEnabled": true,
+      "generationTemplates": [
+        "simple",
+        "pdf",
+        "mdSource"
+      ]
+    },
+    "kindleMobi": {
+      "generationEnabled": true,
+      "generationTemplates": [
+        "simple",
+        "mobi",
+        "mdSource"
+      ]
+    }
+  },
+
+  "debug": {
+    "allowDebugging": false,
+    "showCalibreSettings": true,
+    "showSpecificMethodBoundaries": [
+      "generateBookWithCalibre"
+    ]
+  }
+}

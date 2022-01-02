@@ -1,0 +1,3 @@
+# Chapter n - The rest...
+
+Copy this page for each page in the rest of the book and rename it and remember to include it in the book.md file

@@ -1,0 +1,124 @@
+{
+  "dataRoot" : ".[[$sep]]",
+  "reposRoot" : "[[$dataRoot]]repos[[$sep]]",
+  "usersRoot" : "[[$dataRoot]]users[[$sep]]",
+  "defaultSettingsFileName" : "settings.json",
+  "defaultSettingsDirectory" : "settings",
+  
+  "debug" : {
+    "allowDebugging" : false,
+    "createDebugFilesDuringCompile" : false,
+    "logWhenReplace" : false,
+    "writeCombinedSettingsFileIntoRepository" : false,
+    "showAllMethodBoundaries" : false,
+    "showSpecificMethodBoundaries" : [ "compile","compileOutputDocuments", "mergeUserSettingsFile", "mergeSettings"  ],
+    "showSettingsBeforeCompilation" : false,
+    "showSettingsBeforeMergeSettings" : false,
+    "showSettingsAfterMergeSettings" : false,
+    "showWordUsageStats" : false,
+    "showCalibreSettings" : false,
+    "showOutputDocumentData" : false,
+    "showOutputDocumentTemplateSettings" : true,
+    "outputProcessedBookFileNameAndWordCount" : false,
+    "showMasterUser" : true,
+    "keyValueReplacement" : false,
+    "showOutputAfterDocumentSettingsOverride" : false,
+    "globalMasterUserSettings" : true,
+    "showProcessedOutputFilename" : false,
+    "showIfSettingsFileNotFound" : true,
+    "showWhenMergeSettings" : true,
+    "showSettingsAfterDocPersonSettingsOverride" : false,
+    "adhocdebug": true
+  },
+  
+  "allowCompilation" : true,
+
+  "inclusionMethods" : {
+    "handlebars" : {
+      "allowInclusion" : true,
+      "lastPassOnly" : true
+    },
+    "internalRegex" : {
+      "allowInclusion" : true,
+      "lastPassOnly" : false,
+      "settingsInsertionRegexes" : [
+        "\\[\\[\\$(.+?)\\]\\]",
+        "\\<\\<\\$(.+?)\\>\\>"
+      ],
+      "fileInsertionRegexes" : [
+        "\\[\\[#(.*?)\\]\\]",
+        "\\<\\<#(.*?)\\>\\>"
+      ],
+      "keyPairInsertionRegexes" : [
+        "\\[\\[\\!(.*?)\\]\\]",
+        "\\<\\<\\!(.+?)\\>\\>"
+      ]
+    }
+  },
+
+  "generationTemplates": {
+    "simple": {
+      "generateSettings": {
+        "processor": "Calibre",
+        "generateInputFileFromBookStructureFile": true,
+        "bookStructureFile": "book.<<$generateSettings.sourceFormat>>",
+        "inputFile": "generated-<<$shortTitle>>.<<$generateSettings.sourceFormat>>",
+        "outputFile": "generated-<<$shortTitle>>.<<$generateSettings.outputFormat>>",
+        "baseFontSize": "",
+        "justification": "justify",
+        "disableFontRescaling": "",
+        "generateCSSFileFromCSSStructureFile": false,
+        "CSSstructureFile": "stylesheet.css",
+        "CSSfile": "stylesheet.css",
+        "fontSizeMapping": "12,12,14,14,16,16,16,20",
+        "insertBlankLineSize": "1",
+        "lineHeight": "12",
+        "margin": "50",
+        "marginTop": "<<$generateSettings.margin>>",
+        "marginRight": "<<$generateSettings.margin>>",
+        "marginBottom": "<<$generateSettings.margin>>",
+        "marginLeft": "<<$generateSettings.margin>>",
+        "enableHeuristics": true,
+        "smartenPunctuation": true,
+        "transformCssRulesFile": "cssrules.txt",
+        "enableCssTransformRules": false,
+        "chapterStartsAt": "//h:h1",
+        "startReadingAt": "//h:a[@id='start']",
+        "pageBreaksBefore": "<<$generateSettings.chapterStartsAt>>",
+        "trimIncludedFiles": true
+      }
+    },
+    "eBook": {
+      "generateSettings": {
+        "outputFormat": "epub",
+        "outputProfile": "kindle"
+      }
+    },
+    "mobi": {
+      "generateSettings": {
+        "outputFormat": "mobi",
+        "outputProfile": "kindle"
+      }
+    },
+    "doc": {
+      "generateSettings": {
+        "outputFormat": "docx",
+        "outputProfile": "kindle"
+      }
+    },
+    "pdf": {
+      "generateSettings": {
+        "outputFormat": "pdf",
+        "paperSize": "a4",
+        "pdfDefaultFontSize": "12",
+        "pageNumbers": true
+      }
+    },
+    "mdSource": {
+      "generateSettings": {
+        "sourceFormat": "md",
+        "inputEncoding": "utf8"
+      }
+    }
+  }
+}

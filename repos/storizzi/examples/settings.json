@@ -1,0 +1,16 @@
+{
+  "defaultProjectId" : "simple",
+  
+  "projects" : {
+    "simple" : {
+      "name": "Simple Example",
+      "description": "The Wonderful Wizard of Oz",
+      "location" : "simple"
+    },
+    "emptybook" : {
+      "name": "Empty Book Example",
+      "description": "Empty Book to use as a template to work from",
+      "location" : "emptybook"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "storizzicore",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Storizzi core tools",
+  "license": "Apache 2.0",
+  "author": {
+    "name": "Simon Huggins",
+    "email": "simon@storizzi.com",
+    "url": "http://www.storizzi.com"
+  },
+  "main": "index.js",
+  "bin": {
+    "storizzi": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "commander": "^7.0.0",
+    "dayjs": "^1.10.4",
+    "deepmerge": "^4.2.2",
+    "ebook-convert": "github:storizzi/ebook-convert",
+    "handlebars": "^4.7.7",
+    "handlebars-helpers": "^0.9.8",
+    "helper-date": "^1.0.1",
+    "jsonfile": "^6.1.0",
+    "lodash": "^4.17.21",
+    "marked": "^4.0.8",
+    "os": "^0.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storizzi/storizzicore-v1.git"
+  }
+}
