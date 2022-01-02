@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var storizziVersion = "1.0.0";
+var storizziVersion = "1.0.1";
 
 var program = require('commander');
 var jsonfile = require('jsonfile');
