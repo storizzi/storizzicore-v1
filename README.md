@@ -1,32 +1,34 @@
 # Storizzi Core v1
 
-Storizzi core is the command line / shell imterface for orgsnizing your writing work.
+Storizzi core is a command line / shell interface for organizing your writing work professionally.
 
-While it is primarily aimed at authors with a more technical background, ypu don't need development skills to benefit from its approach to authoring - just an inquiring mind and a willingness to take things step-by-step.
+It should work from Mac OSX, PC Windows, and Linux as it is based on node.js and Calibre which are available in these ecosystems.
 
-What you end up with is a framework for working that can take you from amateur to professional to professional multi-series, multi-author seven-figure income pro with people doing all this for you. Because Storizzi is a system of working that scales with you.
+While it is primarily aimed at authors with a more technical background, you don't need development skills to benefit from its approach to authoring - just an inquiring mind and a willingness to take things step-by-step.
 
-This README gives only basic information on how to install / get going with Storizzi. For more detailed information, tutorials etc. then take a look at the [storizzi.com](https://storizzi.com) web site.
+What you end up with is a framework for working that can take you from amateur to professional to multi-series author, to multi-author seven-figure income pro with people doing all this for you. Because Storizzi is a system of working that scales with you.
+
+This README gives only basic information on how to install / get going with Storizzi. For more detailed information, tutorials etc. then take a look at the [Storizzi Web Site](https://storizzi.com).
 
 Storizzi core is ideal for authors wishing to approach their writing in a structured yet flexible way that allows you to leverage your work to ensure your writing can be used in a variety of channels without needing to rewrite copy, back matter, or worry about how to organize special editions (eg beta copies or anthologies).
 
 As you progress in your writing career, the admin tasks can become greater and more tedious and feed your procastination demon to the point of stopping writing - I have known several people like this, all because they don't have a simple system so they never need worry about this again.
 
-Storizzi seeks to fill this gap and guve a toolset that (from the initial version) gives you the capability to:
+Storizzi seeks to fill this gap and give a toolset that (from the initial version) gives you the capability to:
 
-* Generate books in common formats such as mobi for Kindle and PDF for almost every computer device!
-* Write using a plain and simple text editor (I recommend Visual Studio code with the all-in-one Markdown plugin) to keep your focus on writing, and encourage use of tooling like git for maintaining a history of changes
+* Generate books in common formats such as mobi / epub / docx for Kindle and other e-Readers and PDF for almost every computer device!
+* Write using a plain and simple text editor (I recommend Visual Studio code with the all-in-one Markdown plugin) to keep your focus on writing, encouraging the use of tooling like git for maintaining a history of changes
 * Structure your documents - eg using a chapter per file or poem per file or an anthology or a series of books
 * Keep details of books separated from the main copy - eg author name, copyright details etc
 * Organise common copy to share between different works - eg. copyright pages, author bio, advertising (eg keeping your lists of books current for every book)
-* Generate special versions by including special tags to include special copy - eg. to personalize an edition for beta readers
-* Auto-substitute - for example, to include different words or phrases for different markets, or to change the name of a character without changing the original manuscript
+* Generate special versions by including tags to include special copy - eg. to personalize an edition for beta readers
+* Auto-substitute - for example, to include different words or phrases for different markets (eg UK vs US), or to change the name of a character without changing the original manuscript
 * Create pipelines to generate books using specific settings time and time again - even generating multiple versions at the same time
 * Organise your work into authors / repositories / projects for those organising large bodies of works
 * Capture statistics about word usage, and keep track of your timelines to see how many words you have to write per day to meet your deadline
 * Include media such as images in your content
 * Include standard copy as inclusions so you can use snippets in different places - great if you are generating a standard format over and over again using different copy
-* A huge amount more to come... I'll be including a roadmap soon
+* A huge amount more to come...
 * And it's [Open Source](LICENSE) too! So adapt it as you see fit, or better still, help contribute to the community...
 
 # Links / Dependencies
@@ -37,13 +39,13 @@ Make sure you have the following instlled before you try using Storizzi
   * [Calibre command line eBook converter](
 https://manual.calibre-ebook.com/generated/en/ebook-convert.html) - automatically included when installing Calibre - link included for reference purposes
 * Node.js - best installed via [package management](https://nodejs.org/en/download/package-manager/)
-* [Kindle previewer](https://www.amazon.com/Kindle-Previewer/b?ie=UTF8&node=21381691011) - Useful tool for PC or Mac to preview your kindle output files before uploading them for Amazon eBook publishing, if you wish to use Storizzi to do this
+* Optional: [Kindle previewer](https://www.amazon.com/Kindle-Previewer/b?ie=UTF8&node=21381691011) - Useful tool for PC or Mac to preview your kindle output files before uploading them for Amazon eBook publishing, if you wish to use Storizzi to do this
 
 # Installation
 
 You can clone the repo and work from there, or use npm to install it using:
 
-```npm install -g storizzi```
+```npm install -g storizzicore```
 
 To see the command usage, from the shell prompt or command prompt enter:
 
@@ -69,17 +71,17 @@ This is roughly what happens under the hood:
 
 * Looks in the ```users``` directory from the working directory and takes user related settings from the ```storizzi``` directory inside this
 * Looks in the ```repos/storizzi``` directory (repos for the storizzi user) and looks inside the ```examples``` directory for the ```examples``` repo
-* Looks in the ```settings.json``` file for projects as none have been specified. It finds the defsult project is ```simple``` and the location for this is ```simple``` directory, so this is the project directory that will be generated from
-* Looks in the ```settings.json``` file of the ```simple``` directory where it find some simple book metadata such as the book cover image filename, the title and author, etc. It works out what it should use for input and output using standard generation template settings, defined in the ```outputDocuments``` section - this shows that all output documents are taken from markdown, and use general generation settings, and each document is given a different output document type
+* Looks in the ```settings.json``` file for projects as none have been specified. It finds the default project is ```simple``` and the location for this is the ```simple``` directory, so this is the project directory that will be generated from
+* Looks in the ```settings.json``` file of the ```simple``` directory where it finds some simple book metadata such as the book cover image filename, the title and author etc. It works out what it should use for input and output using standard generation template settings, defined in the ```outputDocuments``` section - this shows that all output documents are taken from markdown, and uses ```simple``` generation settings, and each document is given a different output document type
   * The templates are defined in the generic storizzi ```application-settings.json``` - you can override these, or create your own templates as required to replace these
-* The ```general``` generation template defines that the input document to be used will be called ```book.md```
-* Inside ```book.md``` is a list of documents that will be included - the ```title.md``` document also includes an image file as part of the page as an example of how to do this.
+* The ```simple``` generation template defines that the input document to be used will be called ```book.md```
+* Inside ```book.md``` is a list of documents that will be included - the ```title.md``` document also includes an image file as part of the page as an example of how to do this
 * The ```stylesheet.css``` file is used to make changes to the design of the output document, if required
-* A file is generated for each of the items in the ```outputDocuments``` section using for the filename the prefix ```generated-``` followed by the ```shortTitle``` defined in the project's ```settings.json```, with the filename extension matching the type of file being generated.
+* A file is generated for each of the items in the ```outputDocuments``` section using for the filename, the prefix ```generated-``` followed by the ```shortTitle``` defined in the project's ```settings.json```, with the filename extension matching the type of file being generated.
 * Try out reading these files using an appropriate reader - e.g. Microsoft Word for ```.docx``` or Adobe Reader for ```.pdf``` or Kindle Reader for ```.epub```. Calibre can also be used to open any of these, but won't necessarily give you a sense of the native reading experience.
 * Nb. For uploading to Amazon, you are best to use either ```.docx``` or ```.epub``` format - it used to be ```.mobi``` format but this is no longer recommended.
 
-Note, to specify the specific project in the repository, you could have used the following command, which would have done the same thing because the ```simple``` project is the default project in the ```storizzi``` repo:
+Note, to specify the specific project in the repository, you could have used the following command, which would have done the same thing because the ```simple``` project is the default project in the ```examples``` repo:
 
 ```storizzi compile storizzi -r examples -p simple```
 
@@ -125,10 +127,10 @@ Here's the example ```settings.json``` repository file *after* you have added yo
 
 # Disclaimer
 
-Use at your own risk! If this isn't fit for purpose or causes you problems, don't blame me! Use something more fit for you need, or better, ask the community for help, or even better, contribute towards making it better yourself (or pay someone withe akills to adapt it to what you want).
+Use at your own risk! If this isn't fit for purpose or causes you problems, don't blame me! Use something more fit for you needs, or better, ask the community for help, or even better, request a new feature, contribute towards making it better yourself (or pay someone with the skills to adapt it to what you want).
 
 For more information / more formal disclaimer see the [License details](LICENSE)
 
-I have created this to help my own workflow, so it doesn't use the best software architecture principles in the world - I did try creating a bettwr crafted v2 but it was so overengineered it didn't axtually work!
+I have created this to help my own workflow, so it doesn't use the best software architecture principles in the world - I did try creating a better crafted v2 but it was so overengineered it didn't actually work!
 
 So plans are to start from where I was a few years ago, and improve it based on something I know works, rather than making *that* mistake again! Feel free to lend a hand if you have skills in node.js
