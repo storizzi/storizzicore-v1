@@ -35,10 +35,11 @@ Storizzi seeks to fill this gap and give a toolset that (from the initial versio
 
 Make sure you have the following instlled before you try using Storizzi
 
-* [Calibre App (MacOS/Windows/Linux)](https://calibre-ebook.com/download) - I prefer to use via WSL2 - [Windows subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install) on Windows machines, but not necessary
+* [Calibre App (MacOS/Windows/Linux)](https://calibre-ebook.com/download) - I prefer to use via WSL2 - [Windows subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install) on Windows machines as it went a lot smoother for me, but not totally necessary
   * [Calibre command line eBook converter](
 https://manual.calibre-ebook.com/generated/en/ebook-convert.html) - automatically included when installing Calibre - link included for reference purposes
-* Node.js - best installed via [package management](https://nodejs.org/en/download/package-manager/)
+* [Node.js](https://nodejs.org/en/download/) - best installed via [package management](https://nodejs.org/en/download/package-manager/)
+* [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - Version control management required for Node to work but also useful if using Storizzi with repositories
 * Optional: [Kindle previewer](https://www.amazon.com/Kindle-Previewer/b?ie=UTF8&node=21381691011) - Useful tool for PC or Mac to preview your kindle output files before uploading them for Amazon eBook publishing, if you wish to use Storizzi to do this
 
 # Installation
@@ -65,12 +66,16 @@ For a simple test which generates a book from a markdown version of *The Wizard 
 
 From the root directory of the storizzi installation, type the following command:
 
-```storizzi compile storizzi -r examples```
+```storizzi compile -u storizzi -r examples -p simple```
+
+or because there are defaults set for user, repository and project, you can just type
+
+```storizzi compile```
 
 This is roughly what happens under the hood:
 
-* Looks in the ```users``` directory from the working directory and takes user related settings from the ```storizzi``` directory inside this
-* Looks in the ```repos/storizzi``` directory (repos for the storizzi user) and looks inside the ```examples``` directory for the ```examples``` repo
+* Looks in the ```users``` directory from the working directory and takes user related settings from the ```storizzi``` directory inside this. The default userId can be found in ```storizzi-settings.json```
+* Looks in the ```repos/storizzi``` directory (repos for the storizzi user) and looks inside the ```examples``` directory for the ```examples``` repo. The default repo id can be found in ```users/storizzi/settings.json```
 * Looks in the ```settings.json``` file for projects as none have been specified. It finds the default project is ```simple``` and the location for this is the ```simple``` directory, so this is the project directory that will be generated from
 * Looks in the ```settings.json``` file of the ```simple``` directory where it finds some simple book metadata such as the book cover image filename, the title and author etc. It works out what it should use for input and output using standard generation template settings, defined in the ```outputDocuments``` section - this shows that all output documents are taken from markdown, and uses ```simple``` generation settings, and each document is given a different output document type
   * The templates are defined in the generic storizzi ```application-settings.json``` - you can override these, or create your own templates as required to replace these
