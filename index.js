@@ -1,30 +1,31 @@
 #!/usr/bin/env node
 
-var storizziVersion = "1.0.2";
+var storizziVersion = "1.0.3"
 
-var program = require('commander');
-var jsonfile = require('jsonfile');
-var fs = require('fs');
-var path = require('path');
-var convert = require('ebook-convert');
-var marked = require('marked');
-var merge = require('deepmerge');
-var Handlebars = require('handlebars');
-const util = require('util');
-var os=require('os');
-var dayjs = require('dayjs');
-var duration = require('dayjs/plugin/duration');
-dayjs.extend(duration);
-var relativeTime = require('dayjs/plugin/relativeTime');
-dayjs.extend(relativeTime);
-var helpers = require('handlebars-helpers')();
+var program = require('commander')
+var jsonfile = require('jsonfile')
+var fs = require('fs')
+var path = require('path')
+var convert = require('ebook-convert')
+var marked = require('marked')
+var merge = require('deepmerge')
+var Handlebars = require('handlebars')
+const util = require('util')
+var os=require('os')
+var dayjs = require('dayjs')
+var duration = require('dayjs/plugin/duration')
+dayjs.extend(duration)
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
+var helpers = require('handlebars-helpers')()
 
-var appDir = path.dirname(require.main.filename);
-var appSettingsFilename = "application-settings.json";
-const { values: valueArray, replace } = require('lodash');
-const { exit } = require('process');
+var appDir = path.dirname(require.main.filename)
+var appDirStr = appDir.replace(/\\/g, '\\\\')
+var appSettingsFilename = "application-settings.json"
+const { values: valueArray, replace } = require('lodash')
+const { exit } = require('process')
 
-Handlebars.registerHelper('date', require('helper-date'));
+Handlebars.registerHelper('date', require('helper-date'))
 
 var initialSettings = {}
 
@@ -37,16 +38,16 @@ marked.setOptions({
   sanitize: true,
   smartLists: true,
   smartypants: true
-});
+})
 
 function extractSetting(varNameString, settings) {
-  let result=varNameString;
+  let result=varNameString
   try {
-    result = varNameString.split('.').reduce((o,i)=>o[i], settings); // better than eval
-    return result;
+    result = varNameString.split('.').reduce((o,i)=>o[i], settings) // better than eval
+    return result
   } catch(err) {
-    console.log("Error extracting setting %s: %s",varNameString, err);
-    return undefined;
+    console.log("Error extracting setting %s: %s",varNameString, err)
+    return undefined
   }
   
 }
@@ -840,14 +841,15 @@ function saveUserSettings(userSettings, globalSettings) {
 function mergeSystemSettings(settings) {
   let newSettings = {"runTimeStamp" : new Date().toJSON(),
     "debug" : { "allowDebugging" : false },
-    "sep" : path.sep, generateSettings : {},
+    "sep" : path.sep.replace(/\\/g, '\\\\'),
+    "generateSettings" : {},
     "trueValue" : "match",
     "inclusionMethods" : { },
     "operatingSystem" : os.platform(),
     "operatingSystemType" : os.type(),
     "operatingSystemVersion" : os.release(),
     "storizziVersion" : storizziVersion,
-    "appDirectory" : appDir,
+    "appDirectory" : appDirStr,
     "loadedSettings" : { "system" : true } };    
   return mergeSettings(settings,newSettings);
 }

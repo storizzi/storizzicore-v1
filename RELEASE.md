@@ -4,6 +4,7 @@
 
 - Tested with PC installation - interim on dev branch
   - installing using ``npm install "https://github.com/storizzi/storizzicore-v1.git#dev" --global``
+- Bug fix on PC path for Application Root and path separator as used in config
 
 ## v1.0.2 - 21 Jan 2022
 
