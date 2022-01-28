@@ -1,9 +1,8 @@
 {
   "name": "storizzicore",
-  "version": "1.0.0",
-  "private": true,
+  "version": "v1.0.2",
   "description": "Storizzi core tools",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "author": {
     "name": "Simon Huggins",
     "email": "simon@storizzi.com",
@@ -16,6 +15,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "writing",
+    "markdown",
+    "epub",
+    "mobi",
+    "pdf",
+    "mobi",
+    "author",
+    "publishing",
+    "authoring",
+    "books"
+  ],
   "dependencies": {
     "commander": "^7.0.0",
     "dayjs": "^1.10.4",

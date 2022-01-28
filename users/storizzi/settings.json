@@ -1,16 +1,16 @@
 {
     "user" : {
-      "username" : "storizzi",
-      "firstname": "Storizzi",
-      "surname": "Simon",
+      "firstName": "Storizzi",
+      "lastName": "Simon",
       "pseudonym": true,
-      "email": "examples@storizzi.com",
-      "repositoryList" : ["examples"],
-      "repositories" : {
-        "examples" : {
-          "name" : "Examples of how storizzi can be used"
-        }
+      "email": "examples@storizzi.com"
+    },
+    "defaultRepoId": "examples",
+    "repositoryList" : ["examples"],
+    "repositories" : {
+      "examples" : {
+        "name" : "Examples of how storizzi can be used"
       }
     }
-  }
+}
   
